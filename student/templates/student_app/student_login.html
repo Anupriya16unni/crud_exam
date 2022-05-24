@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+</head>
+<style>
+    .main{
+        width: 600px;
+        height: 350px;
+        background: rgba(238, 130, 238, 0.5);
+        margin-left: 450px;
+        margin-top: 100px;
+        border: 2px solid violet;
+        border-radius: 5px;
+    }
+    .row{
+        font-weight: bold;
+        padding-left: 30px;
+        font-size: 20px;
+        
+    }
+    .input{
+        width: 350px;
+    }
+    .bg{
+        background: rgba(238, 130, 238, 0);
+        border: 2px solid violet;
+        border-radius: 5px;
+        width: 430px;
+    }
+    h1{
+        margin-left: 220px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    .btn{
+        background: rgba(238, 130, 238, 0);
+        border: 2px solid violet;
+        width: 180px;
+        margin-top: 15px;
+        margin-left: 100px;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+    p{
+        color: red;
+        margin-left: 100px;
+    }
+</style>
+<body>
+    <div class="main">
+        <h1>Login</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-auto">
+              <label for="inputPassword6" class="col-form-label">Username</label>
+            </div>
+            <div class="col-auto input">
+              <input class="bg" type="" id="email" name="user_std" class="form-control">
+              <span id="email_err"></span>
+            </div>
+        </div>
+        <br>
+        <div class="row g-3">
+            <div class="col-auto">
+              <label for="inputPassword6" class="col-form-label">Password</label>
+            </div>
+            <div class="col-auto input">
+              <input class="bg" type="password" name="pass_std" id="pswrd" class="form-control" aria-describedby="passwordHelpInline">
+              <span id="pswrd_err"></span>
+            </div>
+        </div>
+        <button class="btn" type="submit" onclick="return login()">Login</button>
+        <p>{{error}}</p>
+    </form>
+    </div>
+    
+</body>
+<script>
+    function login() {
+
+returnStatus = 1;
+
+var email1 = document.getElementById('email')
+var email_span = document.getElementById("email_err")
+
+var psd_err = document.getElementById('pswrd')
+var pswrd_span = document.getElementById('pswrd_err')
+
+
+if (email1.value == "") {
+    email_span.innerHTML = "*please fill the email"
+    email_span.style.color = "red"
+    email1.style.border = "solid 1px red"
+    returnStatus = 0
+}
+else {
+    email_span.innerHTML = ""
+    email1.style.border = "solid 1px black"
+    
+}
+
+if (psd_err.value == "") {
+    returnStatus = 0
+    pswrd_span.innerHTML = "*please fill the pasword"
+    pswrd_span.style.color = "red"
+    psd_err.style.border = "solid 1px red"
+    
+}
+else {
+    psd_err.innerHTML = ""
+    psd_err.style.border = "solid 1px red"
+}
+
+
+if (returnStatus == 0) {
+return false
+}
+
+
+}
+    
+</script>
+</html>

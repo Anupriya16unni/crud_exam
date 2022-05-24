@@ -1,0 +1,65 @@
+{% extends 'adminapp/dashboard.html' %} 
+{% block admin_profile %}
+
+<style>
+    .table{
+        width: 850px;
+        background-color: white;
+        margin-top: 20px;
+        margin-left: 25px;
+        border: 2px solid black;
+    }
+    tr{
+        border: 2px solid black;
+    }
+    
+    .div{
+        width: 900px;
+        height: 280px;
+        background-color: rgba(78, 73, 73, 0.863);
+        margin-top: 80px;
+        margin-left: 30px;
+    }
+    h2{
+        color: black;
+        text-align: center;
+        padding-top: 10px;
+    }
+    button{
+        width: 90px;
+    }
+</style>
+
+<div class="div">
+    <h2>View Active/Inactive Students</h2>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Active/Inactive</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Joe</td>
+            <td>Jhonny</td>
+            <td><button class="btn btn-dark">Active</button></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td><button class="btn btn-dark">Inactive</button></td>
+          </tr>
+        
+        </tbody>
+      </table>
+</div>
+
+
+{% endblock %}
+
+
